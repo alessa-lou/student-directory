@@ -37,14 +37,27 @@ def input_students
 students = []
 name = gets.chomp
 while !name.empty? do
-    students << {name: name, cohort: :november}
-    puts "Now we have #{students.count} students"
-    name = gets.chomp
-end
-students
+    puts "Which cohort?"
+    cohort = gets.chomp
+      if cohort == ""
+        cohort = "november"
+      end
+    puts "Did you do a typo? Type no for correct, type yes to redo"
+    puts "name = #{name}, cohort = #{cohort}"
+    typo = gets.chomp
+    if typo == "no"
+      students << {name: name, cohort: cohort.to_sym}
+      puts "Now we have #{students.count} students"
+    end
+  puts "Name:"
+  name = gets.chomp
+end 
 end
 
-#students = input_students
+def group_cohorts
+  
+
+students = input_students
 print_header
 print(students)
 print_footer(students)
