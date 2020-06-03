@@ -27,6 +27,13 @@ def print(students)
   end
 end
 
+def print(students)
+  puts "Which cohort would you like to see?"
+  cohort = gets.chomp.to_sym
+  group = students.map { |student| student[:name] if student[:cohort] == cohort }
+  puts group
+end
+
 def print_footer(students)
   if input_students == nil
     puts "Overall we have zero students"
@@ -67,6 +74,9 @@ end
 end
 
 students = input_students
+if students == nil
+  puts "-"
+end
 print_header
-#print(students)
+print(students)
 print_footer(students)
