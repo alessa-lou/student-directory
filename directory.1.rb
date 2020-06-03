@@ -47,14 +47,16 @@ while !name.empty? do
     typo = gets.chomp
     if typo == "no"
       students << {name: name, cohort: cohort.to_sym}
+      if students.count == 1
+        puts "Now we have #{students.count} student"
+      else
       puts "Now we have #{students.count} students"
+      end
     end
   puts "Name:"
   name = gets.chomp
-end 
 end
-
-def group_cohorts
+end
   
 
 students = input_students
