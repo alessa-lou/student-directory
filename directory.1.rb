@@ -44,7 +44,7 @@ while !name.empty? do
       end
     puts "Did you do a typo? Type no for correct, type yes to redo"
     puts "name = #{name}, cohort = #{cohort}"
-    typo = gets.chomp
+    typo = gets.chop
     if typo == "no"
       students << {name: name, cohort: cohort.to_sym}
       if students.count == 1
@@ -54,7 +54,7 @@ while !name.empty? do
       end
     end
   puts "Name:"
-  name = gets.chomp
+  name = gets.chop
 end
 end
   
