@@ -28,7 +28,11 @@ def print(students)
 end
 
 def print_footer(students)
+  if input_students == nil
+    puts "Overall we have zero students"
+  else
     puts "Overall we have #{students.count} great students "
+  end
 end
 
 def input_students
@@ -36,7 +40,10 @@ def input_students
   puts "To finish, just hit return twice"
 students = []
 name = gets.chomp
-while !name.empty? do
+if name.empty?
+  puts "Zero students"
+else
+  while !name.empty? do
     puts "Which cohort?"
     cohort = gets.chomp
       if cohort == ""
@@ -55,11 +62,11 @@ while !name.empty? do
     end
   puts "Name:"
   name = gets.chop
+  end
 end
 end
-  
 
 students = input_students
 print_header
-print(students)
+#print(students)
 print_footer(students)
