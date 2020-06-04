@@ -18,21 +18,16 @@ def print_header
 end
 
 def print(students)
-  counter = 0
-  while counter != 11 do
+  puts "what letter do you want?"
+  letter = gets.chomp
   students.each do |student|
-    puts "#{student[:name]} enjoys #{student[:hobbies]}"
-    counter += 1
+    if student[:name].to_s.start_with?(letter) == true
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
     end
   end
 end
 
-def print(students)
-  puts "Which cohort would you like to see?"
-  cohort = gets.chomp.to_sym
-  group = students.map { |student| student[:name] if student[:cohort] == cohort }
-  puts group
-end
+
 
 def print_footer(students)
   if input_students == nil
@@ -47,8 +42,8 @@ def input_students
   puts "To finish, just hit return twice"
 students = []
 name = gets.chomp
-if name.empty?
-  puts "Zero students"
+if name.empty? == true
+  puts "Zero"
 else
   while !name.empty? do
     puts "Which cohort?"
@@ -74,9 +69,6 @@ end
 end
 
 students = input_students
-if students == nil
-  puts "-"
-end
 print_header
 print(students)
 print_footer(students)
