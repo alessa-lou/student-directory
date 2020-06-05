@@ -100,7 +100,9 @@ def interactive_menu
 end
 
 def save_students
-  CSV.open("students.csv", "w") do |csv|
+  puts "what would you like to name the file?"
+  filename = gets.chomp + ".csv"
+  CSV.open(filename, "w") do |csv|
     @students.each do |student|
       csv << [student[:name], student[:cohort]]
     end
@@ -121,12 +123,12 @@ end
 
 
 
-File.open(__FILE__, "r") do |file|
-   file.readlines.each do |line|
-    puts line
-  end 
-end
+#File.open(__FILE__, "r") do |file|
+ #  file.readlines.each do |line|
+  #  puts line
+  #end 
+#end
 
-#default_startup_load
-#interactive_menu
+default_startup_load
+interactive_menu
 
