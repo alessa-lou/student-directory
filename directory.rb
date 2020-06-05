@@ -1,3 +1,4 @@
+require "csv"
 #First we print the list of students
 students =  [
   {name: "Dr. Hannibal Lecter", cohort: :november},
@@ -42,13 +43,10 @@ end
 end
 
 def load_students(filename = "students.csv")
-  File.open(filename, "r") do |file|
-    file.readlines.each do |line|
-      name, cohort = line.chomp.split(',')
-      add_students(name, cohort)
-    end
+  CSV.foreach(filename) do |row|
+    name, cohort = row
+    add_students(name, cohort)
   end
-print_students_list
 end
 
 def add_students(name, cohort)
@@ -102,11 +100,9 @@ def interactive_menu
 end
 
 def save_students
-  File.open("students.csv", "w") do |file|
+  CSV.open("students.csv", "w") do |csv|
     @students.each do |student|
-      student_data = [student[:name], student[:cohort]]
-      csv_line = student_data.join(",")
-      file.puts csv_line
+      csv << [student[:name], student[:cohort]]
     end
   end
 end
@@ -122,6 +118,8 @@ def default_startup_load
     exit
   end
 end
+
+
 
 default_startup_load
 interactive_menu
