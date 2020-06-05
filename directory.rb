@@ -73,16 +73,21 @@ end
 def process(selection)
   case selection
   when "1"
+    puts "you have chosen 1. Input Students:"
     input_students
   when "2"
+    puts "you have chosen 2. Show the students:"
     print_header
     print
     print_footer
   when "3"
+    puts "you have chosen 3. Save the students to file:"
     save_students
   when "4"
+    puts "you have chosen 4. Load the students from file"
     load_students
   when "9"
+    puts "you have chosen 9. Exit"
     exit
   else
     puts "I don't know what you meant try again"
