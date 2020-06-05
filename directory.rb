@@ -107,7 +107,7 @@ def save_students
 file.close
 end
 
-def try_load_students
+def default_startup_load
   filename = ARGV.first
   filename = "students.csv" if filename.nil?
   if File.exists?(filename)
@@ -119,6 +119,6 @@ def try_load_students
   end
 end
 
-try_load_students
+default_startup_load
 interactive_menu
 
